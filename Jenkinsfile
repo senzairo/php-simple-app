@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'php:8.2-cli'
-            args '-u root' // agar bisa install composer
-        }
-    }
+    agent any
 
     environment {
         COMPOSER_ALLOW_SUPERUSER = "1"
@@ -20,7 +15,7 @@ pipeline {
         stage('Install Composer') {
             steps {
                 sh 'curl -sS https://getcomposer.org/installer | php'
-                sh 'mv composer.phar /usr/local/bin/composer'
+                sh 'sudo mv composer.phar /usr/local/bin/composer || mv composer.phar /usr/local/bin/composer'
                 sh 'composer --version'
             }
         }
