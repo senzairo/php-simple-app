@@ -1,0 +1,10 @@
+{
+    "_readme": [
+        "This is a dummy composer.lock file. It will be generated after running 'composer install'"
+    ],
+    "content-hash": "00000000000000000000000000000000",
+    "packages": [],
+    "packages-dev": [],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
