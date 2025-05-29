@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/senzairo/php-simple-app.git'
+                  git credentialsId: 'github-creds', git branch: 'main', url: 'https://github.com/senzairo/php-simple-app.git'
             }
         }
 
