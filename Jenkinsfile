@@ -14,9 +14,13 @@ pipeline {
 
         stage('Install Composer') {
             steps {
-                sh 'curl -sS https://getcomposer.org/installer | php'
-                sh 'sudo mv composer.phar /usr/local/bin/composer || mv composer.phar /usr/local/bin/composer'
-                sh 'composer --version'
+                sh '''
+                if ! [ -x "$(command -v composer)" ]; then
+                    echo "Composer not found!"
+                    exit 1
+                fi
+                composer --version
+                '''
             }
         }
 
